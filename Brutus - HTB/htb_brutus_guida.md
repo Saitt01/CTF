@@ -38,6 +38,7 @@ Risposta: root
 Uso lo script utmp.py su wtmp:
 
 python3 utmp.py -o wtmp.out wtmp
+
 cat wtmp.out | grep 65.2.161.68
 
 Output:
